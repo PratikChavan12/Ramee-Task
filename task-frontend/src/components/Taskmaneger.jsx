@@ -58,16 +58,6 @@ const Taskmaneger = () => {
     <div className="container mt-5">
       {/* Header Controls */}
       <div className="d-flex justify-content-end align-items-center mb-3">
-        <div className="d-none">
-          <label className="me-2">Search</label>
-          <input
-            type="text"
-            className="form-control d-inline w-auto"
-            placeholder="Search by Title"
-            //   value={search}
-            //   onChange={(e) => setSearch(e.target.value)}
-          />
-        </div>
         <div>
           <button
             className="btn btn-outline-primary me-2"
@@ -75,13 +65,6 @@ const Taskmaneger = () => {
           >
             📝 Add Task
           </button>
-
-          {/* <label className="me-2">Show</label>
-          <select className="form-select d-inline w-auto">
-            <option>10</option>
-            <option>25</option>
-          </select>
-          <label className="ms-2">entries</label> */}
         </div>
       </div>
 

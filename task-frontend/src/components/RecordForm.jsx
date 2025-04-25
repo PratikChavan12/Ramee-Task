@@ -46,7 +46,6 @@ const RecordForm = () => {
         duedate: recordList?.data?.duedate || "",
         entity: recordList?.data?.entity || "",
         staff: recordList?.data?.staff || "",
-        // file: recordList?.data?.file || "",
       }));
     }
   }, [type, recordListLoading, recordList]);
@@ -60,7 +59,6 @@ const RecordForm = () => {
       duedate: "",
       entity: "",
       staff: "",
-      file: null,
     });
   };
   const [loading, setLoading] = useState(false);
@@ -152,7 +150,10 @@ const RecordForm = () => {
 
   return (
     <>
-      <div className="mt-4 px-5 py-4 bg-white shadow rounded w-50 mx-auto">
+      <div
+        className="px-5 py-4 bg-white shadow rounded w-50 mx-auto"
+        style={{ marginTop: "55px" }}
+      >
         <h2 className="mb-4 text-center text-primary">
           📝 {type ? "Update" : "Add"}{" "}
           <span className="text-secondary">
@@ -187,22 +188,29 @@ const RecordForm = () => {
               />
             </div>
 
-            {/* File Upload */}
+            {/* Staff */}
             <div className="col-md-6">
-              <label className="form-label fw-semibold">Upload File</label>
-              <input
-                type="file"
-                className="form-control"
-                name="file"
+              <label className="form-label fw-semibold">Assign to Staff</label>
+              <select
+                className="form-select"
+                style={{ cursor: "pointer" }}
+                name="staff"
+                value={formData.staff}
                 onChange={(e) =>
                   setFormData((prev) => ({
                     ...prev,
-                    file: e.target.value,
+                    staff: e.target.value,
                   }))
                 }
-              />
+              >
+                <option value="">-- Select Staff --</option>
+                <option>Bruce</option>
+                <option>Scarlet</option>
+                <option>John</option>
+              </select>
             </div>
           </div>
+
           {/* Priority, Type */}
           <div className="row mb-3">
             <div className="col-md-6">
@@ -293,28 +301,6 @@ const RecordForm = () => {
             </div>
 
             <div className="col-md-6">
-              <label className="form-label fw-semibold">Assign to Staff</label>
-              <select
-                className="form-select"
-                style={{ cursor: "pointer" }}
-                name="staff"
-                value={formData.staff}
-                onChange={(e) =>
-                  setFormData((prev) => ({
-                    ...prev,
-                    staff: e.target.value,
-                  }))
-                }
-              >
-                <option value="">-- Select Staff --</option>
-                <option>Jack</option>
-                <option>Scarlet</option>
-              </select>
-            </div>
-          </div>
-
-          <div className="row">
-            <div className="col-md-6 pe-3">
               <label className="form-label fw-semibold">
                 Due Date <span className="text-danger">*</span>
               </label>
