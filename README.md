@@ -27,6 +27,10 @@ php artisan serve
 ```
 
 # 🔧 Frontend Setup (React + Vite)
+
+```
 cd task-frontend
 npm install
 npm run dev
+
+```
